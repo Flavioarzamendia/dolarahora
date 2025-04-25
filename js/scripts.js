@@ -5,15 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainCard = document.getElementById("main-card");
   const updateTimeElement = document.getElementById("update-time");
 
-  // Iconos SVG (Heroicons)
-  const arrowUp = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
-    </svg>`;
-
-  const arrowDown = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-    </svg>`;
-
   // Modifica la función formatCurrency
   const formatCurrency = (value) =>
     new Intl.NumberFormat("es-AR", {
@@ -32,11 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Crear elemento de tarjeta
   const createCurrencyCard = (currency, index) => {
-    const variation = (
-      ((currency.venta - currency.compra) / currency.compra) *
-      100
-    ).toFixed(1);
-    const isPositive = variation >= 0;
     const currencyFlag =
       {
         USD: "🇺🇸",
@@ -54,12 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="flex items-start justify-between mb-4 ">
                 <div class="flex items-center gap-3">
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800">${
-                          currency.nombre
-                        }</h3>
+                        <h3 class="text-lg font-semibold text-gray-800">
+                            ${currency.nombre}
+                        </h3>
                     </div>
                 </div>
-
             </div>
             
             <div class="space-y-3">
