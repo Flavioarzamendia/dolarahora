@@ -59,12 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }</h3>
                     </div>
                 </div>
-                <div class="flex items-center gap-1 ${
-                  isPositive ? "text-green-600" : "text-red-600"
-                }">
-                    ${isPositive ? arrowUp : arrowDown}
-                    <span class="text-sm font-medium">${variation}%</span>
-                </div>
+
             </div>
             
             <div class="space-y-3">
@@ -126,7 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const latestUpdate = new Date(
         Math.max(...currencies.map((c) => new Date(c.fechaActualizacion)))
       );
-      updateTimeElement.textContent = latestUpdate.toLocaleString("es-AR");
+      updateTimeElement.textContent = ` ${latestUpdate.toLocaleDateString("es-AR")} ${latestUpdate.toLocaleTimeString("es-AR", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })}`;
 
       // Limpiar contenedores
       currenciesContainer.innerHTML = "";
@@ -150,5 +148,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Actualizar periódicamente
   loadData();
-  setInterval(loadData, 300000); // Actualizar cada minuto
+  setInterval(loadData, 60000); // Actualizar cada minuto
 });
