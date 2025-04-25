@@ -150,5 +150,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Actualizar periódicamente
   loadData();
-  setInterval(loadData, 60000); // Actualizar cada minuto
+  setInterval(loadData, 300000); // Actualizar cada minuto
 });
