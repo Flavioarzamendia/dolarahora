@@ -1,0 +1,57 @@
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-animation {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.hover-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.badge {
+    @apply text-xs px-2 py-1 rounded-full;
+}
+
+.badge-positive {
+    @apply bg-green-100 text-green-800;
+}
+
+.badge-negative {
+    @apply bg-red-100 text-red-800;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+
+@keyframes marquee-infinite {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+.animate-marquee-infinite {
+    animation: marquee-infinite 40s linear infinite;
+}
+
+.group:hover .animate-marquee-infinite {
+    animation-play-state: paused;
+}
